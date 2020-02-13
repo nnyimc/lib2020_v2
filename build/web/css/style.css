@@ -1,0 +1,129 @@
+@charset "UTF-8";
+body {
+    overflow-x: hidden;
+    font: normal 10pt verdana, helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    
+}
+
+a{
+    text-decoration: none;
+}
+
+a:link{
+    color: cornflowerblue;
+}
+
+a:hover{
+    color:darkmagenta;
+}
+
+a:visited{
+    color: black;
+}
+
+h1{
+    margin: 0 45%;
+}
+
+h2 {
+    margin: 0 2%;
+}
+
+#caddie {
+    display:inline;
+    float: right;  
+}
+
+#caddieLogo {
+    width: 40pt;
+    height: 40pt;
+    float: right;
+}
+
+#compteurPanier{
+    z-index: 1;
+    position: absolute;
+    top: 40pt;
+    right: 5pt;
+    background-color: orangered;
+    font-size: 9pt;
+    text-align:center;
+    color: white;
+    height: 15pt;
+    width: 15pt;
+    border-radius: 50%;
+}
+
+#loupe {
+    width: 15pt;
+    height: 15pt;
+}
+
+#rechercheBarre {
+    margin: 5%;
+    text-align:center;
+}
+
+#recherche {
+    background-color: white;
+    border: none;
+    color: white;
+    width: 22pt;
+    height: 22pt;
+}
+
+.titre {
+    text-align: center;
+}
+
+.article {
+    background-color: white;
+    min-width: 17%;
+    border: 1pt solid black;
+    margin: 3% 1.25%;
+    display: inline-block;
+}
+
+
+#devanture{
+    background-color: lightgray;
+}
+#resultat{
+    background-color: lightsteelblue;
+}
+.achat {
+    margin-left: 30%;
+    margin-bottom: 2%;
+    padding: 2%;
+    border: none;
+    background-color: orange;
+}
+
+.couverture {
+    margin:  0 10%;
+    min-width: 160pt;
+    min-height: 200pt;
+}
+
+.panier {
+    background-color: white;
+    border: 1pt solid orange;
+    margin: 2%;
+    max-width: 25%;
+    min-height:40%;
+    
+}
+
+#achat {
+    border: 1pt solid blue;
+    background-color: aliceblue;
+    color: black;
+    padding: 1%;
+    margin-left: 5%;
+}
+
+footer{
+    text-align: center;
+}
