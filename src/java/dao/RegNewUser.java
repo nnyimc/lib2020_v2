@@ -1,22 +1,21 @@
 
 package dao;
 
-import beans.Utilisateur;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 
-public class RegNewUser {
-  private Connector connector;
+public class RegNewUser implements IRegNewUser {
+  private IConnector iConnector;
 
     public RegNewUser() {
-        connector = new Connector(); 
+        iConnector = new Connector();
     }
-    public Boolean regNewUser(String rNom,String rPrenom,String rEmail,String rUser,String rPass,int adrLiv, int adrFac, int Stat) throws SQLException {
+    public boolean regNewUser(String rNom,String rPrenom,String rEmail,
+                              String rUser, String rPass,int adrLiv,
+                              int adrFac, int Stat) throws SQLException {
       
-        Connection connexion = connector.contacterBDD();
+        Connection connexion = iConnector.contacterBDD();
         String query = "INSERT INTO CLIENT VALUES(?,?,?,?,?,?,?,?)";
         PreparedStatement pstmt = connexion.prepareStatement(query);
 

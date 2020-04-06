@@ -1,8 +1,11 @@
-package beans;
+package entities;
 
-public class Commande {
+import beans.BeanPanier;
+import beans.IBeanPanier;
+
+public class Commande extends ClassGenerique{
     private Client client;
-    private BeanPanier panier;
+    private IBeanPanier panier;
     private Paiement paiement;
     private Livraison livraison;
     private int numeroCommande;
@@ -11,36 +14,42 @@ public class Commande {
     private String dateFacturation;
    
     public Commande(){
-    
+        super();
     }
     
     public Client getClient() {
+
         return client;
     }
 
     public void setClient(Client client) {
+
         this.client = client;
     }
 
-    public BeanPanier getPanier() {
+    public IBeanPanier getPanier() {
+
         return panier;
     }
 
-    public void setPanier(BeanPanier panier) {
+    public void setPanier(IBeanPanier panier) {
+
         this.panier = panier;
     }
 
-    
-    
+
     public Paiement getPaiement() {
+
         return paiement;
     }
 
     public void setPaiement(Paiement paiement) {
+
         this.paiement = paiement;
     }
 
     public Livraison getLivraison() {
+
         return livraison;
     }
 

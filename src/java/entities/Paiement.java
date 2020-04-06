@@ -1,15 +1,13 @@
-package beans;
+package entities;
 
-import java.util.Date;
-
-public class Paiement {
+public class Paiement extends ClassGenerique{
     private TypePaiement typePaiement;
-    private Date datePaiement;
+    private DatePaiement datePaiement;
     private String numeroTransaction;
     private String numeroFacture;
     
     public Paiement(){
-    
+        super();
     }
     
     public TypePaiement getTypePaiement() {
@@ -20,11 +18,11 @@ public class Paiement {
         this.typePaiement = typePaiement;
     }
 
-    public Date getDatePaiement() {
+    public DatePaiement getDatePaiement() {
         return datePaiement;
     }
 
-    public void setDatePaiement(Date datePaiement) {
+    public void setDatePaiement(DatePaiement datePaiement) {
         this.datePaiement = datePaiement;
     }
 
@@ -43,6 +41,5 @@ public class Paiement {
     public void setNumeroFacture(String numeroFacture) {
         this.numeroFacture = numeroFacture;
     }
-    
-    
+
 }

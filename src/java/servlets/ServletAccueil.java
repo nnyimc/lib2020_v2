@@ -1,20 +1,17 @@
 package servlets;
 
 import beans.BeanArticle;
-import beans.Devanture;
 import beans.BeanPanier;
+import dao.SelectArticle;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.*;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.Cookie;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 @WebServlet(name = "ServletAccueil", urlPatterns = {"/accueil"})
 public class ServletAccueil extends HttpServlet {
@@ -83,8 +80,8 @@ public class ServletAccueil extends HttpServlet {
             String rechercheAuto = request.getParameter("auto");
             
             /*Affichage de 5 livres en devanture*/
-            Devanture devanture = new Devanture();
-            Map<String, BeanArticle> contenuDevanture = devanture.afficher();
+            SelectArticle selectArticle = new SelectArticle();
+            Map<String, BeanArticle> contenuDevanture = selectArticle.afficherDevanture();
             request.setAttribute(ATTRIBUT_DEVANTURE, contenuDevanture.values());         
             
             if ("panier".equals(div)) {

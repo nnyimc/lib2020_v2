@@ -1,8 +1,10 @@
 package beans;
 
+import entities.*;
+
 import java.io.Serializable;
 
-public class BeanArticle implements Serializable{
+public class BeanArticle implements Serializable, IBeanArticle{
     private Auteur auteur;
     private Tva tva;
     private Evenement evenement;
@@ -27,15 +29,13 @@ public class BeanArticle implements Serializable{
     public Auteur getAuteur() {
         return auteur;
     }
-
     public void setAuteur(Auteur auteur) {
         this.auteur = auteur;
     }
-    
+
     public Tva getTva() {
         return tva;
     }
-
     public void setTva(Tva tva) {
         this.tva = tva;
     }
@@ -43,7 +43,6 @@ public class BeanArticle implements Serializable{
     public Evenement getEvenement() {
         return evenement;
     }
-
     public void setEvenement(Evenement evenement) {
         this.evenement = evenement;
     }
@@ -51,7 +50,6 @@ public class BeanArticle implements Serializable{
     public Employe getEmploye() {
         return employe;
     }
-
     public void setEmploye(Employe employe) {
         this.employe = employe;
     }
@@ -59,7 +57,6 @@ public class BeanArticle implements Serializable{
     public Categorie getCategorie() {
         return categorie;
     }
-
     public void setCategorie(Categorie categorie) {
         this.categorie = categorie;
     }
@@ -67,7 +64,6 @@ public class BeanArticle implements Serializable{
     public Editeur getEditeur() {
         return editeur;
     }
-
     public void setEditeur(Editeur editeur) {
         this.editeur = editeur;
     }
@@ -75,7 +71,6 @@ public class BeanArticle implements Serializable{
     public String getLivreIsbn() {
         return livreIsbn;
     }
-
     public void setLivreIsbn(String livreIsbn) {
         this.livreIsbn = livreIsbn;
     }
@@ -83,7 +78,6 @@ public class BeanArticle implements Serializable{
     public String getLivreTitre() {
         return livreTitre;
     }
-
     public void setLivreTitre(String livreTitre) {
         this.livreTitre = livreTitre;
     }
@@ -91,7 +85,6 @@ public class BeanArticle implements Serializable{
     public String getLivreSousTitre() {
         return livreSousTitre;
     }
-
     public void setLivreSousTitre(String livreSousTitre) {
         this.livreSousTitre = livreSousTitre;
     }
@@ -99,16 +92,13 @@ public class BeanArticle implements Serializable{
     public String getLivreCouverture() {
         return livreCouverture;
     }
-
     public void setLivreCouverture(String livreCouverture) {
         this.livreCouverture = livreCouverture;
     }
-    
 
     public String getLivrePrixHt() {
         return livrePrixHt;
     }
-
     public void setLivrePrixHt(String livrePrixHt) {
         this.livrePrixHt = livrePrixHt;
     }
@@ -116,7 +106,6 @@ public class BeanArticle implements Serializable{
     public String getLivreResume() {
         return livreResume;
     }
-
     public void setLivreResume(String livreResume) {
         this.livreResume = livreResume;
     }
@@ -124,7 +113,6 @@ public class BeanArticle implements Serializable{
     public String getLivreStatut() {
         return livreStatut;
     }
-
     public void setLivreStatut(String livreStatut) {
         this.livreStatut = livreStatut;
     }
@@ -132,7 +120,6 @@ public class BeanArticle implements Serializable{
     public String getRepertorisationDate() {
         return repertorisationDate;
     }
-
     public void setRepertorisationDate(String repertorisationDate) {
         this.repertorisationDate = repertorisationDate;
     }
@@ -140,7 +127,6 @@ public class BeanArticle implements Serializable{
     public int getLivreQteCommandee() {
         return livreQteCommandee;
     }
-
     public void changerQteCommandee(int quantite){
         this.livreQteCommandee += quantite;
     }
@@ -148,7 +134,6 @@ public class BeanArticle implements Serializable{
     public int getLivreQteStock() {
         return livreQteStock;
     }
-
     public void setLivreQteStock(int livreQteStock) {
         this.livreQteStock -= livreQteStock;
     }  

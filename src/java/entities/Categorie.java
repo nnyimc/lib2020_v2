@@ -1,30 +1,27 @@
-package beans;
+package entities;
 
 
-public class Categorie {
+public class Categorie extends ClassGenerique {
     private int categorieCode;
     private String categorieLibelle;
 
     public Categorie(){
-    
+        super();
     }
-    
-    public int getCatCode() {
+
+    public int getCategorieCode() {
         return categorieCode;
     }
 
-    public void setCatCode(int categorieCode) {
+    public void setCategorieCode(int categorieCode) {
         this.categorieCode = categorieCode;
     }
 
-    public String getCatLibelle() {
+    public String getCategorieLibelle() {
         return categorieLibelle;
     }
 
-    public void setCatLibelle(String categorieLibelle) {
+    public void setCategorieLibelle(String categorieLibelle) {
         this.categorieLibelle = categorieLibelle;
     }
-    
-    
-    
 }

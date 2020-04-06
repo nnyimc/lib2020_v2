@@ -1,17 +1,15 @@
-package beans;
+package entities;
 
-import java.util.Date;
-
-public class Evenement {
+public class Evenement extends ClassGenerique{
     private int evenementCode;
     private String evenementNom;
-    private Date evenementDebut;
-    private Date evenementFin;
+    private DateEvenementDebut evenementDebut;
+    private DateEvenementFin evenementFin;
     private String evenementImage;
     private float remiseTaux;
     
     public Evenement(){
-    
+        super();
     }
     
     public int getEvenementCode() {
@@ -30,19 +28,19 @@ public class Evenement {
         this.evenementNom = evenementNom;
     }
 
-    public Date getEvenementDebut() {
+    public DateEvenementDebut getEvenementDebut() {
         return evenementDebut;
     }
 
-    public void setEvenementDebut(Date evenementDebut) {
+    public void setEvenementDebut(DateEvenementDebut evenementDebut) {
         this.evenementDebut = evenementDebut;
     }
 
-    public Date getEvenementFin() {
+    public DateEvenementFin getEvenementFin() {
         return evenementFin;
     }
 
-    public void setEvenementFin(Date evenementFin) {
+    public void setEvenementFin(DateEvenementFin evenementFin) {
         this.evenementFin = evenementFin;
     }
 

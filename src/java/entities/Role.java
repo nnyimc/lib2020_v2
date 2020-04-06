@@ -1,14 +1,14 @@
-package beans;
+package entities;
 
 
-public class Role {
+public class Role extends ClassGenerique {
     private int roleId;
     private String roleNom;
     
     public Role(){
-    
+        super();
     }
-    
+
     public int getRoleId() {
         return roleId;
     }
@@ -24,5 +24,4 @@ public class Role {
     public void setRoleNom(String roleNom) {
         this.roleNom = roleNom;
     }
-    
 }

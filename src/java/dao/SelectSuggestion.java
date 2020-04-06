@@ -5,24 +5,25 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 
-public class SelectSuggestion {
+public class SelectSuggestion implements ISelectGenerique {
     private Connection connexion;
+    private String query;
 
     public Connection getConnexion() {
+
         return connexion;
     }
 
     public void setConnexion(Connection connexion) {
+
         this.connexion = connexion;
     }
     
-    public ArrayList<String> SelectionnerSuggestion(Connection connexion, String typeRecherche, String recherche) throws SQLException{
+    public ArrayList<String> SelectionnerSuggestion(Connection connexion, String typeRecherche, String recherche)
+            throws SQLException{
          
          ArrayList<String> listeMots =  new ArrayList<String>();
-         String query = "";
          if  (!recherche.equals("")) {
              if (typeRecherche.equals("mot_cle")){
                  query = "SELECT MOTCLEDESIGN FROM MOT_CLE" +

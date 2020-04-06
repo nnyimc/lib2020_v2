@@ -10,7 +10,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 
-public class BeanPanier implements Serializable{
+public class BeanPanier implements Serializable, IBeanPanier {
 
     
     private Map<String, BeanArticle> contenuPanier;
@@ -80,15 +80,12 @@ public class BeanPanier implements Serializable{
     public void dec(String livreIsbn) throws SQLException {
         add(livreIsbn, -1);
     }
-
     public void sub(String livreIsbn, int qty) throws SQLException {
         add(livreIsbn, -qty);
     }
-
     public void del(String livreIsbn) {
         contenuPanier.remove(livreIsbn);
     }
-
     public void clear() {
         contenuPanier.clear();
     }

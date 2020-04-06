@@ -1,13 +1,13 @@
-package beans;
+package entities;
 
-public class Editeur {
+public class Editeur extends ClassGenerique {
     private int editeurCode;
     private String editeurNom;
 
     public Editeur(){
-    
+        super();
     }
-    
+
     public int getEditeurCode() {
         return editeurCode;
     }
@@ -22,5 +22,5 @@ public class Editeur {
 
     public void setEditeurNom(String editeurNom) {
         this.editeurNom = editeurNom;
-    }      
+    }
 }

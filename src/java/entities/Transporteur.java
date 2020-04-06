@@ -1,13 +1,13 @@
-package beans;
+package entities;
 
-public class Transporteur {
+public class Transporteur extends ClassGenerique {
     private int transporteurId;
     private String transporteurNom;
     
     public Transporteur(){
-    
+        super();
     }
-    
+
     public int getTransporteurId() {
         return transporteurId;
     }
@@ -23,6 +23,4 @@ public class Transporteur {
     public void setTransporteurNom(String transporteurNom) {
         this.transporteurNom = transporteurNom;
     }
-    
-    
 }

@@ -1,11 +1,11 @@
-package beans;
+package entities;
 
-public class Tva {
+public class Tva extends ClassGenerique{
     private int tvaCode;
     private float tvaTaux;
     
     public Tva(){
-    
+        super();
     }
 
     public int getTvaCode() {
@@ -23,6 +23,4 @@ public class Tva {
     public void setTvaTaux(float tvaTaux) {
         this.tvaTaux = tvaTaux;
     }
-    
-    
 }

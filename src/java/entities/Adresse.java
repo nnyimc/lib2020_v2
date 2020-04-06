@@ -1,6 +1,6 @@
-package beans;
+package entities;
 
-public class Adresse {
+public abstract class Adresse implements IAdresse{
     private int adresseId;
     private String adresseRue;
     private String adresseComplement;

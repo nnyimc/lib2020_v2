@@ -7,7 +7,7 @@ import javax.naming.NamingException;
 import javax.sql.DataSource;
 
 
-public class Connector {
+public class Connector implements IConnector {
    public Connection contacterBDD() throws SQLException{
          DataSource ds = null;
             try {

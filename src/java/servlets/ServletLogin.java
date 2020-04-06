@@ -1,17 +1,9 @@
 package servlets;
 
-import beans.Utilisateur;
-import dao.Connector;
 import dao.RegNewUser;
 import dao.SelectClient;
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;

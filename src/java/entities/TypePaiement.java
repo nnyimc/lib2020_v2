@@ -1,13 +1,13 @@
-package beans;
+package entities;
 
-public class TypePaiement {
+public class TypePaiement extends ClassGenerique{
     private int typePaiementCode;
     private String typePaiementLibelle;
 
     public TypePaiement(){
-    
+        super();
     }
-    
+
     public int getTypePaiementCode() {
         return typePaiementCode;
     }
@@ -23,6 +23,4 @@ public class TypePaiement {
     public void setTypePaiementLibelle(String typePaiementLibelle) {
         this.typePaiementLibelle = typePaiementLibelle;
     }
-    
-    
 }
