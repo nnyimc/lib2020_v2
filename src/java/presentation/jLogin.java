@@ -9,10 +9,10 @@ import java.sql.SQLException;
 import java.util.Vector;
 import javax.swing.*;
 
-
+//Déclaration de la fenêtre en charge du traitement de l'authentification
 public class jLogin extends javax.swing.JFrame {
 
-    //Formulaire d'authentification
+    //Initialisation du formulaire d'authentification
     public jLogin() {
         initComponents();
     }
@@ -54,15 +54,23 @@ public class jLogin extends javax.swing.JFrame {
         contentPane.setLayout(null);
 
         //---- labelTitre ----
+
+        //Création du labelTitre
         labelTitre.setFont(new Font("Tahoma", Font.PLAIN, 18));
         labelTitre.setHorizontalAlignment(SwingConstants.CENTER);
         labelTitre.setText("LIBGRP1 - Authentification");
+        //Ajout du label au panel
         contentPane.add(labelTitre);
+        //Définition de la dimension du label titre
         labelTitre.setBounds(140, 20, 220, 20);
+
+        //Ajout du séparateur au panel
         contentPane.add(sprtrTitre);
         sprtrTitre.setBounds(0, 60, 490, 20);
 
         //---- champUser ----
+
+        //Choix de la police de texte
         champUser.setFont(new Font("Tahoma", Font.BOLD, 14));
         contentPane.add(champUser);
         champUser.setBounds(230, 90, 220, 40);
@@ -85,11 +93,16 @@ public class jLogin extends javax.swing.JFrame {
 
         //---- btnLogIn ----
         btnLogIn.setText("LOG IN");
+
+        /*Utilisation d'une expression lamba pour gérer les évènements liés au bouton Login
+        Elle permet d'utiliser une fonction sans avoir à créer une classe*/
         btnLogIn.addActionListener(e -> btnLogInActionPerformed(e));
         contentPane.add(btnLogIn);
         btnLogIn.setBounds(170, 240, 110, 40);
 
         //---- labelInfo ----
+
+        //Centrer le labelInfo
         labelInfo.setHorizontalAlignment(SwingConstants.CENTER);
         contentPane.add(labelInfo);
         labelInfo.setBounds(10, 300, 470, 30);
@@ -112,10 +125,13 @@ public class jLogin extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-
+    //Fonction qui décrit les actions à effectuer lorsque l'élément visuel est la cible d'un évènement
     private void btnLogInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogInActionPerformed
+
+        //Liste abstraite reconnue par Swing
         Vector v = new Vector();
 
+        //Transformation d'un tableau de caractères en chaîne de caractère
         char[] passe = champPass.getPassword();
         String passString = new String(passe);
 
@@ -131,6 +147,7 @@ public class jLogin extends javax.swing.JFrame {
             return;
         }
 
+        //Traitement de l'exception ClassNotFound dans le cadre de la recherche du driver MSSQL
         try {
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
         } catch (ClassNotFoundException ex) {
@@ -138,9 +155,16 @@ public class jLogin extends javax.swing.JFrame {
             return;
         }
 
+        //Ouverture d'une connexion vers la base de données
         Connection connexion = null;
+
+        //Interface qui permet de d'éxecuter des requêtes SQL et de retourner un résultat
         java.sql.Statement stmt;
+
+        //Objet contenant les résultats d'une requête SQL
         ResultSet rs;
+
+        //Traitement de l'exception dans le cadre d'une connection vers la base de données
         try {
             connexion = DriverManager.getConnection(
                     "jdbc:sqlserver://localhost:1433;"
@@ -150,35 +174,40 @@ public class jLogin extends javax.swing.JFrame {
             return;
         }
 
-
+        //Traitement d'une exception dans le cadre de l'éxécution d'une requête SQL
         try {
             String query = "SELECT EMPLOYELOGIN, EMPLOYEMDP FROM EMPLOYE WHERE EMPLOYELOGIN= '" + champUser.getText() + "' AND EMPLOYEMDP= '" + passString + "';";
-            System.out.print(query);
             stmt = connexion.createStatement(
+                    //Rendre le ResultSet scrollable et non modifiable
                     ResultSet.TYPE_SCROLL_INSENSITIVE,
+                    //Rendre le ResultSet accessible en lecture seule
                     ResultSet.CONCUR_READ_ONLY
             );
+
             rs = stmt.executeQuery(query);
 
-
+            //En cas d'absence de résultat --> si le curseur ne se positionne pas avant la première ligne
             if (!rs.isBeforeFirst()) {
                 labelInfo.setText("Echec de l'authentification.");
             }
 
+            /*Parcours de l'ensemble du ResultSet -- Instanciation de la fenêtre commande
+            Fermeture de la fenêtre jLogin*/
             while (rs.next()) {
                 jCommande jfc = new jCommande();
                 jfc.setVisible(true);
-
-                System.out.println("Login Done!");
                 this.dispose();
             }
 
+            //Fermeture des ressources
             rs.close();
             stmt.close();
         } catch (SQLException ex) {
             System.err.println("Oops:SQL:" + ex.getErrorCode() + ":" + ex.getMessage());
             return;
         }
+
+        //Fermeture de la connexion vers le serveur MSSQL
         try {
             connexion.close();
         } catch (SQLException ex) {
@@ -189,7 +218,7 @@ public class jLogin extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btnLogInActionPerformed
 
-
+    //Evenement lié au survol de la fenetre JLogin
     private void formMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseEntered
         labelInfo.setText("Tous les champs sont obligatoires.");
     }//GEN-LAST:event_formMouseEntered

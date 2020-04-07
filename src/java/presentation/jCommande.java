@@ -6,26 +6,15 @@ import javax.swing.*;
 import javax.swing.GroupLayout;
 import javax.swing.LayoutStyle;
 import javax.swing.border.*;
-import static java.awt.PageAttributes.MediaType.C;
-import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.Locale;
 import java.util.Vector;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.DefaultComboBoxModel;
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.tree.DefaultMutableTreeNode;
-import javax.swing.tree.DefaultTreeModel;
-
-import beans.BeanArticle;
 import beans.BeanLivre;
-import beans.IBeanArticle;
 import entities.MotCle;
 import entities.SousTheme;
 import entities.Theme;
@@ -36,19 +25,25 @@ public class jCommande extends javax.swing.JFrame {
         initComponents();
     }
 
+    //Remplissage de la comboBox Livre
     private DefaultComboBoxModel comboLivre() {
         return new DefaultComboBoxModel(livreVector());
     }
 
     private Vector livreVector() {
         Vector v = new Vector();
+
+        //Recherche du driver MSSQL
         try {
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
         } catch (ClassNotFoundException ex) {
             System.err.println("Oops:Driver:" + ex.getMessage());
             return v;
         }
+
         Connection connexion = null;
+
+        //Ouverture d'une connexion vers la base de données
         try {
             connexion = DriverManager.getConnection(
                     "jdbc:sqlserver://localhost:1433;"
@@ -58,11 +53,13 @@ public class jCommande extends javax.swing.JFrame {
             return v;
         }
 
+        //Exécution d'une requête SQL
         String query = "SELECT * FROM LIVRE;";
         try {
             Statement stmt = connexion.createStatement();
             ResultSet rs = stmt.executeQuery(query);
 
+            //Parcours du ResultSet -- @Override toString à envisager
             while (rs.next()) {
                 v.add(new BeanLivre(rs.getString("LIVREISBN"),
                         rs.getInt("TVACODE"),
@@ -76,38 +73,47 @@ public class jCommande extends javax.swing.JFrame {
                         rs.getString("LIVRECOUV"),
                         rs.getString("LIVRESTATUT"),
                         rs.getInt("CATCODE"),
-                        rs.getInt("EDITCODE")));
+                        rs.getInt("EDITCODE")).getLivreTitre());
             }
+
+            //Fermeture des ressources
             rs.close();
             stmt.close();
         } catch (SQLException ex) {
             System.err.println("Oops:SQL:" + ex.getErrorCode() + ":" + ex.getMessage());
             return v;
         }
+
+        //Fermeture de la connexion
         try {
             connexion.close();
         } catch (SQLException ex) {
             System.err.println("Oops:Close:" + ex.getErrorCode() + ":" + ex.getMessage());
             return v;
         }
-
-        System.out.println("Done!");
         return v;
     }
 
+    //Remplissage de la comboBox MotCle
     private DefaultComboBoxModel modelMotCle() {
         return new DefaultComboBoxModel(MotCleVector());
     }
 
+    //Instanciation du Vector -- Liste abstraite
     private Vector MotCleVector() {
         Vector vv = new Vector();
+
+        //Recherche du driver MSSQL
         try {
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
         } catch (ClassNotFoundException ex) {
             System.err.println("Oops:Driver:" + ex.getMessage());
             return vv;
         }
+
         Connection connexion = null;
+
+        //Ouverture de la connexion vers MSSQL
         try {
             connexion = DriverManager.getConnection(
                     "jdbc:sqlserver://localhost:1433;"
@@ -118,20 +124,25 @@ public class jCommande extends javax.swing.JFrame {
         }
 
         String query = "SELECT DISTINCT MOT.MOTCLEID, MOTCLEDESIGN FROM LIVRE JOIN CARACTERISER CARAC ON CARAC.LIVREISBN = LIVRE.LIVREISBN JOIN MOT_CLE MOT ON CARAC.MOTCLEID = MOT.MOTCLEID;";
+
+        //Execution de la requête
         try {
             Statement stmt = connexion.createStatement();
             ResultSet rs = stmt.executeQuery(query);
 
             while (rs.next()) {
                 vv.add(new MotCle(rs.getInt("MOTCLEID"),
-                        rs.getString("MOTCLEDESIGN")));
+                        rs.getString("MOTCLEDESIGN")).getNom());
             }
+            //Fermeture des ressources
             rs.close();
             stmt.close();
         } catch (SQLException ex) {
             System.err.println("Oops:SQL:" + ex.getErrorCode() + ":" + ex.getMessage());
             return vv;
         }
+
+        //Fermeture de la connexion
         try {
             connexion.close();
         } catch (SQLException ex) {
@@ -184,8 +195,6 @@ public class jCommande extends javax.swing.JFrame {
             System.err.println("Oops:Close:" + ex.getErrorCode() + ":" + ex.getMessage());
             return vvv;
         }
-
-        System.out.println("Done!");
         return vvv;
     }
 
@@ -218,7 +227,7 @@ public class jCommande extends javax.swing.JFrame {
 
             while (rs.next()) {
                 vvv.add(new SousTheme(rs.getInt("SSTHEMECODE"),
-                        rs.getString("SSTHEMELIBELLE")));
+                        rs.getString("SSTHEMELIBELLE")).getNom());
             }
             rs.close();
             stmt.close();
@@ -465,6 +474,7 @@ public class jCommande extends javax.swing.JFrame {
         buttonGroup1.add(btnRechSSTheme);
     }// </editor-fold>//GEN-END:initComponents
 
+    //Actions à effectuer lorsque le bouton OK détecte un évènement
     private void btnAfficherOKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAfficherOKActionPerformed
 
         BeanLivre l = (BeanLivre) comboTitre.getSelectedItem();
