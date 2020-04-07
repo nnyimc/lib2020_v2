@@ -181,7 +181,7 @@ public class jCommande extends javax.swing.JFrame {
 
             while (rs.next()) {
                 vvv.add(new Theme(rs.getInt("THEMECODE"),
-                        rs.getString("THEMELIBELLE")));
+                        rs.getString("THEMELIBELLE")).getNom());
             }
             rs.close();
             stmt.close();
