@@ -10,10 +10,10 @@ import java.util.Vector;
 import javax.swing.*;
 
 
-public class jLogIn extends javax.swing.JFrame {
+public class jLogin extends javax.swing.JFrame {
 
     //Formulaire d'authentification
-    public jLogIn() {
+    public jLogin() {
         initComponents();
     }
 
@@ -225,7 +225,7 @@ public class jLogIn extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new jLogIn().setVisible(true);
+                new jLogin().setVisible(true);
             }
         });
     }
