@@ -241,8 +241,6 @@ public class jCommande extends javax.swing.JFrame {
             System.err.println("Oops:Close:" + ex.getErrorCode() + ":" + ex.getMessage());
             return vvv;
         }
-
-        System.out.println("Done!");
         return vvv;
     }
 
@@ -529,7 +527,6 @@ public class jCommande extends javax.swing.JFrame {
 
         }
 
-        System.out.println("Done!");
 
 
     }//GEN-LAST:event_comboMotCleActionPerformed
