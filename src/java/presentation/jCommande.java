@@ -59,7 +59,7 @@ public class jCommande extends javax.swing.JFrame {
             Statement stmt = connexion.createStatement();
             ResultSet rs = stmt.executeQuery(query);
 
-            //Parcours du ResultSet -- @Override toString à envisager
+            //Parcours du ResultSet
             while (rs.next()) {
                 v.add(new BeanLivre(rs.getString("LIVREISBN"),
                         rs.getInt("TVACODE"),
@@ -73,7 +73,7 @@ public class jCommande extends javax.swing.JFrame {
                         rs.getString("LIVRECOUV"),
                         rs.getString("LIVRESTATUT"),
                         rs.getInt("CATCODE"),
-                        rs.getInt("EDITCODE")).getLivreTitre());
+                        rs.getInt("EDITCODE")));
             }
 
             //Fermeture des ressources
@@ -132,7 +132,7 @@ public class jCommande extends javax.swing.JFrame {
 
             while (rs.next()) {
                 vv.add(new MotCle(rs.getInt("MOTCLEID"),
-                        rs.getString("MOTCLEDESIGN")).getNom());
+                        rs.getString("MOTCLEDESIGN")));
             }
             //Fermeture des ressources
             rs.close();

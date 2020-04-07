@@ -154,4 +154,9 @@ public class BeanLivre implements IBeanLivre{
     public void setEditeurCode(int editeurCode) {
         this.editeurCode = editeurCode;
     }
+
+    @Override
+    public String toString() {
+        return getLivreTitre();
+    }
 }
