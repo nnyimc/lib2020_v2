@@ -250,7 +250,6 @@ public class jCommande extends javax.swing.JFrame {
         jTextField1 = new JTextField();
         jLabel9 = new JLabel();
         jLabel10 = new JLabel();
-        jLabel6 = new JLabel();
         jLabel11 = new JLabel();
         jLabel12 = new JLabel();
         comboMotCle = new JComboBox();
@@ -317,12 +316,6 @@ public class jCommande extends javax.swing.JFrame {
             jLabel10.setText("ISBN");
             panelDetailsLivre.add(jLabel10);
             jLabel10.setBounds(new Rectangle(new Point(210, 60), jLabel10.getPreferredSize()));
-
-            //---- jLabel6 ----
-            jLabel6.setIcon(new ImageIcon(getClass().getResource("/gui/couvapo.jpg")));
-            jLabel6.setText("jLabel6");
-            panelDetailsLivre.add(jLabel6);
-            jLabel6.setBounds(10, 10, 140, 160);
 
             //---- jLabel11 ----
             jLabel11.setText("PRIX");
@@ -481,7 +474,6 @@ public class jCommande extends javax.swing.JFrame {
         jLabel3.setText(" " + l.getLivrePrixHt());
         jLabel4.setText(" " + l.getLivreStatut());
         panelDetailsLivre.setVisible(true);
-        jLabel6.setIcon(new ImageIcon(l.getLivreCouverture()));
 
 
     }//GEN-LAST:event_btnAfficherOKActionPerformed
@@ -610,7 +602,6 @@ public class jCommande extends javax.swing.JFrame {
     private JTextField jTextField1;
     private JLabel jLabel9;
     private JLabel jLabel10;
-    private JLabel jLabel6;
     private JLabel jLabel11;
     private JLabel jLabel12;
     private JComboBox comboMotCle;
