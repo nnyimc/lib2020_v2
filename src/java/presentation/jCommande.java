@@ -364,7 +364,7 @@ public class jCommande extends javax.swing.JFrame {
         comboTitre.setModel(comboLivre());
         comboTitre.setBackground(new Color(249, 249, 249));
         comboTitre.setForeground(new Color(255, 0, 51));
-        comboTitre.setToolTipText("knjiga");
+        comboTitre.setToolTipText("Choisissez un titre.");
         contentPane.add(comboTitre);
         comboTitre.setBounds(20, 180, 180, comboTitre.getPreferredSize().height);
 
@@ -465,7 +465,7 @@ public class jCommande extends javax.swing.JFrame {
         setLocationRelativeTo(getOwner());
 
         //---- buttonGroup1 ----
-        JRadioButton buttonGroup1 = new JRadioButton();
+        ButtonGroup buttonGroup1 = new ButtonGroup();
         buttonGroup1.add(btnRechMotCle);
         buttonGroup1.add(btnRechTitre);
         buttonGroup1.add(btnRechTheme);
