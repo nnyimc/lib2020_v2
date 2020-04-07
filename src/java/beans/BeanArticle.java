@@ -18,14 +18,15 @@ public class BeanArticle implements Serializable, IBeanArticle{
     private String livrePrixHt;
     private String livreResume;
     private String livreStatut;
-    private String repertorisationDate;
+    private DateRepertorisation DateRepertorisation;
     private int livreQteCommandee;
     private int livreQteStock;
     
     public BeanArticle(){
         
     }
-   
+
+
     public Auteur getAuteur() {
         return auteur;
     }
@@ -117,11 +118,11 @@ public class BeanArticle implements Serializable, IBeanArticle{
         this.livreStatut = livreStatut;
     }
 
-    public String getRepertorisationDate() {
-        return repertorisationDate;
+    public entities.DateRepertorisation getDateRepertorisation() {
+        return DateRepertorisation;
     }
-    public void setRepertorisationDate(String repertorisationDate) {
-        this.repertorisationDate = repertorisationDate;
+    public void setDateRepertorisation(entities.DateRepertorisation dateRepertorisation) {
+        DateRepertorisation = dateRepertorisation;
     }
 
     public int getLivreQteCommandee() {

@@ -2,6 +2,8 @@ package beans;
 
 import entities.*;
 
+import java.util.Date;
+
 public interface IBeanArticle {
     public Auteur getAuteur();
     public void setAuteur(Auteur auteur);
@@ -28,8 +30,8 @@ public interface IBeanArticle {
     public void setLivreResume(String livreResume);
     public String getLivreStatut();
     public void setLivreStatut(String livreStatut);
-    public String getRepertorisationDate();
-    public void setRepertorisationDate(String repertorisationDate);
+    public DateRepertorisation getDateRepertorisation();
+    public void setDateRepertorisation(DateRepertorisation dateRepertorisation);
     public int getLivreQteCommandee();
     public void changerQteCommandee(int quantite);
     public int getLivreQteStock();

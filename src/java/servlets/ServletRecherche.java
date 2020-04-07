@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-@WebServlet(name = "ServletRecherche", urlPatterns = {"/recherche"})
+@WebServlet(value = "ServletRecherche", urlPatterns = {"/recherche"})
 public class ServletRecherche extends HttpServlet {
 
     private static final String VUE_RECHERCHE = "/WEB-INF/views/recherche.jsp";

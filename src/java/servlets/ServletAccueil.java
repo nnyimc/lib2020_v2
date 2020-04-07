@@ -13,7 +13,9 @@ import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-@WebServlet(name = "ServletAccueil", urlPatterns = {"/accueil"})
+//http://localhost:8080/fr.afpa.lib2020_v2/
+
+@WebServlet(value = "ServletAccueil", urlPatterns = {"/accueil"})
 public class ServletAccueil extends HttpServlet {
    
     private static final String ATTRIBUT_COMMANDE = "commande";

@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-@WebServlet(name = "ServletSuggestion", urlPatterns = {"/suggestion"})
+@WebServlet(value = "ServletSuggestion", urlPatterns = {"/suggestion"})
 public class ServletSuggestion extends HttpServlet {
 
     private static final String VUE_SUGGESTION = "/WEB-INF/includes/suggestion.jsp";
